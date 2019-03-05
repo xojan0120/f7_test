@@ -1,3 +1,5 @@
+// For IE 11 support
+import 'react-app-polyfill/ie11';
 // Import React and ReactDOM
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -9,7 +11,8 @@ import Framework7 from 'framework7/framework7.esm.bundle';
 import Framework7React from 'framework7-react';
 
 // Import main App component
-import App from './components/App.jsx';
+//import App from './components/App.jsx';
+import AppTest1 from './components/AppTest1.js';
 
 // Framework7 styles
 import 'framework7/css/framework7.bundle.css';
@@ -25,6 +28,6 @@ Framework7.use(Framework7React);
 
 // Mount React App
 ReactDOM.render(
-  React.createElement(App),
+  <AppTest1 />,
   document.getElementById('app'),
 );

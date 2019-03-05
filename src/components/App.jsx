@@ -15,7 +15,13 @@ import {
   List,
   ListInput,
   ListButton,
-  BlockFooter
+  BlockFooter,
+  Button,
+  BlockTitle,
+  Row,
+  Col,
+  Swiper,
+  SwiperSlide,
 } from 'framework7-react';
 
 import routes from '../routes';
@@ -33,6 +39,26 @@ export default function (props) {
 
   return (
     <App params={f7params}>
+      {/* Swiper */}
+      <Swiper init={true}>
+        <SwiperSlide>Slide 1</SwiperSlide>
+        <SwiperSlide>Slide 2</SwiperSlide>
+        <SwiperSlide>Slide 3</SwiperSlide>
+      </Swiper>
+
+      {/* Button */}
+      <BlockTitle>Fill Buttons</BlockTitle>
+      <Block>
+        <Row>
+          <Col>
+            <Button fill>Button</Button>
+          </Col>
+          <Col>
+            <Button fill>Button</Button>
+          </Col>
+        </Row>
+      </Block>
+
       {/* Statusbar */}
       <Statusbar />
 

@@ -1,0 +1,13 @@
+$color: blue;
+.my {
+  border: 1px solid $color;
+  height: 150px;
+}
+
+.my2 {
+  background-color: pink;
+}
+
+input[type="text"] {
+  outline: 1px solid gray !important;
+}
