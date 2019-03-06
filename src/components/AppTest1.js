@@ -5,6 +5,7 @@ import {
   App,
   Swiper,
   SwiperSlide,
+  Page,
 } from 'framework7-react';
 import styles from '../css/AppTest1.module.scss';
 
@@ -73,47 +74,54 @@ export default class AppTest1 extends Component {
     return (
       // Appタグで囲むのはframework7使うにあたって必須っぽい
       <App>
-        <SortableList />
-        <i className="f7-icons">home</i>
-
-        {/*
-            paramsのheightは、SwiperSlideの高さの指定である。
-            direction:"vertical"を使用する場合は、このheightの指定と、
-            autoHeight:trueが必要である。でないと、SwiperSlideの高さが
-            おかしくなる。
+        {/* 
+            PageタグはSortableなリストを使う場合など必要。
+            無いとtopが取得できないエラーがでる
         */}
-        <Swiper params={{direction:"vertical", height:100, autoHeight:true}} id={swiperId1} className={styles.my}>
-          <SwiperSlide className={styles.slide}>Slide 0</SwiperSlide>
-          <SwiperSlide className={styles.slide}>Slide 1</SwiperSlide>
-          <SwiperSlide className={styles.slide}>Slide 2</SwiperSlide>
-        </Swiper>
-        <input type="button" value="up" onClick={(e) => this.handleClick(e, swiperId1)} />
-        <input type="button" value="down" onClick={(e) => this.handleClick(e, swiperId1)} />
-        <div>SlideIndex:{this.state.swiper1}</div>
-        <hr />
+        <Page>
+          <i className="f7-icons">home</i>
 
-        <Swiper params={{speed: 1000}} id={swiperId2} className={styles.my}>
-          <SwiperSlide>スライド 0</SwiperSlide>
-          <SwiperSlide>スライド 1</SwiperSlide>
-          <SwiperSlide>スライド 2</SwiperSlide>
-        </Swiper>
-        <input type="button" value="next" onClick={(e) => this.handleClick(e, swiperId2)} />
-        <input type="button" value="prev" onClick={(e) => this.handleClick(e, swiperId2)} />
-        {/*
-            下記のinputフォームの枠線はcssで明示的に指定している。
-            framework7のデフォルトで枠線無し担ってしまう模様。
-        */}
-        <br />
-        <label htmlFor="speed">
-          スライドスピード変更
-          <input type="text" onChange={(e) => this.handleSpeedChange(e, swiperId2)} />
-        </label>
-        <div>SlideIndex:{this.state.swiper2}</div>
-        <hr />
+          {/*
+              paramsのheightは、SwiperSlideの高さの指定である。
+              direction:"vertical"を使用する場合は、このheightの指定と、
+              autoHeight:trueが必要である。でないと、SwiperSlideの高さが
+              おかしくなる。
+          */}
+          <Swiper params={{direction:"vertical", height:100, autoHeight:true}} id={swiperId1} className={styles.my}>
+            <SwiperSlide className={styles.slide}>Slide 0</SwiperSlide>
+            <SwiperSlide className={styles.slide}>Slide 1</SwiperSlide>
+            <SwiperSlide className={styles.slide}>Slide 2</SwiperSlide>
+          </Swiper>
+          <input type="button" value="up" onClick={(e) => this.handleClick(e, swiperId1)} />
+          <input type="button" value="down" onClick={(e) => this.handleClick(e, swiperId1)} />
+          <div>SlideIndex:{this.state.swiper1}</div>
+          <hr />
 
-        <AppTest2 />
-        <hr />
+          <Swiper params={{speed: 1000}} id={swiperId2} className={styles.my}>
+            <SwiperSlide>スライド 0</SwiperSlide>
+            <SwiperSlide>スライド 1</SwiperSlide>
+            <SwiperSlide>スライド 2</SwiperSlide>
+          </Swiper>
+          <input type="button" value="next" onClick={(e) => this.handleClick(e, swiperId2)} />
+          <input type="button" value="prev" onClick={(e) => this.handleClick(e, swiperId2)} />
+          {/*
+              下記のinputフォームの枠線はcssで明示的に指定している。
+              framework7のデフォルトで枠線無し担ってしまう模様。
+          */}
+          <br />
+          <label htmlFor="speed">
+            スライドスピード変更
+            <input type="text" onChange={(e) => this.handleSpeedChange(e, swiperId2)} />
+          </label>
+          <div>SlideIndex:{this.state.swiper2}</div>
+          <hr />
 
+          <AppTest2 />
+          <hr />
+
+          <SortableList hoge="ggg"/>
+          <hr />
+        </Page>
       </App>
 		)
   }
